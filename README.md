@@ -1,7 +1,7 @@
 # Overview
 
 Accordion component for Qodly apps.
-
+![image info](public/accordion.png)
 
 ## Properties
 
@@ -13,6 +13,7 @@ Accordion component for Qodly apps.
 |`Items`	|Accordion Item	|You will need this to set the accordion's item. it come with one item by default.	|
 
 ## Accordion Item
+
 |Name	|Type	|Description	|
 |---	|---	|---	|
 |`Title`	|String	|The accordion Title. you only need it for properties.	|
