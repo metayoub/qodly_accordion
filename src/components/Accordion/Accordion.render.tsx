@@ -1,38 +1,55 @@
-import { useRenderer, useSources } from '@ws-ui/webform-editor';
+import { useRenderer } from '@ws-ui/webform-editor';
 import cn from 'classnames';
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
+import { useEnhancedNode, useEnhancedEditor, selectResolver } from '@ws-ui/webform-editor';
 
 import { IAccordionProps } from './Accordion.config';
+import AccordionItem from './AccordionItem';
 
-const Accordion: FC<IAccordionProps> = ({ name, style, className, classNames = [] }) => {
+const Accordion: FC<IAccordionProps> = ({
+  style,
+  variant,
+  className,
+  multiple,
+  classNames = [],
+  items,
+  transition,
+}) => {
   const { connect } = useRenderer();
-  const [value, setValue] = useState(() => name);
-  const {
-    sources: { datasource: ds },
-  } = useSources();
+  const { resolver } = useEnhancedEditor(selectResolver);
+  const [accordion, setAccordion] = useState<number[]>([]);
 
-  useEffect(() => {
-    if (!ds) return;
-
-    const listener = async (/* event */) => {
-      const v = await ds.getValue<string>();
-      setValue(v || name);
-    };
-
-    listener();
-
-    ds.addListener('changed', listener);
-
-    return () => {
-      ds.removeListener('changed', listener);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ds]);
+  const toggleAccordion = (i: number) => {
+    multiple
+      ? accordion.includes(i)
+        ? setAccordion(accordion.filter((item) => item !== i))
+        : setAccordion([...accordion, i])
+      : accordion.includes(i)
+        ? setAccordion([])
+        : setAccordion([i]);
+  };
 
   return (
-    <span ref={connect} style={style} className={cn(className, classNames)}>
-      Hello {value}!
-    </span>
+    <div ref={connect} style={style} className={cn(className, classNames)}>
+      <div
+        className={cn('accordion', {
+          'divide-y': variant === 'default' || variant === 'contained',
+          border: variant === 'contained',
+        })}
+      >
+        {items?.map((item: any, index: number) => (
+          <AccordionItem
+            resolver={resolver}
+            key={item.id}
+            onClick={() => toggleAccordion(index)}
+            active={accordion.includes(index)}
+            item={item}
+            variant={variant}
+            transition={transition}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 

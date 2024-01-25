@@ -21,6 +21,5 @@ Accordion component for Qodly apps.
 
 ## Todo
 
-  - Add Animations
   - Disabling items ? can we
   - Add documentation for custom styling

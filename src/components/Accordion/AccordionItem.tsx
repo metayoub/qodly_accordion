@@ -52,7 +52,7 @@ const AccordionItem: FC<IAccordionItemProps> = ({
       </div>
       <div
         className={cn(`accordion-content p-1 overflow-hidden ${transition}`, {
-          'transition-max-height duration-300': transition !== '',
+          'transition-max-height duration-500': transition !== '',
           'max-h-0 opacity-0': !active,
           'max-h-screen opacity-100': active,
         })}
