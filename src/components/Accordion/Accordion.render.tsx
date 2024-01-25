@@ -1,7 +1,7 @@
 import { useRenderer } from '@ws-ui/webform-editor';
 import cn from 'classnames';
 import { FC, useState } from 'react';
-import { useEnhancedNode, useEnhancedEditor, selectResolver } from '@ws-ui/webform-editor';
+import { useEnhancedEditor, selectResolver } from '@ws-ui/webform-editor';
 
 import { IAccordionProps } from './Accordion.config';
 import AccordionItem from './AccordionItem';
@@ -14,6 +14,7 @@ const Accordion: FC<IAccordionProps> = ({
   classNames = [],
   items,
   transition,
+  position,
 }) => {
   const { connect } = useRenderer();
   const { resolver } = useEnhancedEditor(selectResolver);
@@ -46,6 +47,7 @@ const Accordion: FC<IAccordionProps> = ({
             item={item}
             variant={variant}
             transition={transition}
+            position={position}
           />
         ))}
       </div>

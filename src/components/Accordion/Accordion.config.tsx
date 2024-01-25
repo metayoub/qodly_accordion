@@ -67,7 +67,8 @@ export default {
   },
   defaultProps: {
     multiple: false,
-    transition: 'ease-in-out',
+    transition: 'duration-300',
+    position: 'right',
   },
 } as T4DComponentConfig<IAccordionProps>;
 
@@ -75,5 +76,15 @@ export interface IAccordionProps extends webforms.ComponentProps {
   items?: IAccordion[];
   variant?: 'default' | 'contained' | 'filled' | 'separated' | 'rounded';
   multiple?: boolean;
-  transition?: 'ease-in-out' | 'ease-in' | 'ease-out' | 'linear' | '';
+  transition?:
+    | 'duration-0'
+    | 'duration-75'
+    | 'duration-100'
+    | 'duration-150'
+    | 'duration-200'
+    | 'duration-300'
+    | 'duration-500'
+    | 'duration-700'
+    | 'duration-1000';
+  position?: 'left' | 'right';
 }

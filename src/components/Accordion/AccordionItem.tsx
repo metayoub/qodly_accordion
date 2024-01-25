@@ -9,6 +9,7 @@ interface IAccordionItemProps {
   onClick: () => void;
   resolver: any;
   transition?: string;
+  position?: 'left' | 'right';
 }
 
 const AccordionItem: FC<IAccordionItemProps> = ({
@@ -18,6 +19,7 @@ const AccordionItem: FC<IAccordionItemProps> = ({
   item,
   resolver,
   transition,
+  position,
 }) => {
   return (
     <div
@@ -35,6 +37,7 @@ const AccordionItem: FC<IAccordionItemProps> = ({
           'accordion-title',
           'hover:bg-indigo-500', // not working
           'flex mx-1 justify-between items-center gap-2',
+          { 'flex-row-reverse': position === 'left' },
         )}
       >
         <Element
@@ -55,11 +58,14 @@ const AccordionItem: FC<IAccordionItemProps> = ({
         ></span>
       </div>
       <div
-        className={cn(`accordion-content p-1 overflow-hidden ${transition}`, {
-          'transition-max-height duration-500': transition !== '',
-          'max-h-0 opacity-0': !active,
-          'max-h-screen opacity-100': active,
-        })}
+        className={cn(
+          'accordion-content p-1 overflow-hidden transition-max-height ease-in-out',
+          `${transition}`,
+          {
+            'max-h-0 opacity-0': !active,
+            'max-h-screen opacity-100': active,
+          },
+        )}
       >
         <Element
           serverSideRef={item.initialSsRef}

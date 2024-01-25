@@ -1,5 +1,6 @@
 import { ESetting, TSetting } from '@ws-ui/webform-editor';
 import { BASIC_SETTINGS, DEFAULT_SETTINGS, load } from '@ws-ui/webform-editor';
+import { FaHandPointRight, FaHandPointLeft } from 'react-icons/fa';
 
 const commonSettings: TSetting[] = [
   {
@@ -38,30 +39,62 @@ const commonSettings: TSetting[] = [
     defaultValue: false,
   },
   {
+    type: ESetting.RADIOGROUP,
+    label: 'Chevron Position',
+    key: 'position',
+    defaultValue: 'right',
+    options: [
+      {
+        icon: FaHandPointRight,
+        value: 'right',
+      },
+      {
+        icon: FaHandPointLeft,
+        value: 'left',
+      },
+    ],
+  },
+  {
     type: ESetting.SELECT,
     label: 'Transition',
     key: 'transition',
     defaultValue: 'ease-in-out',
     options: [
       {
-        label: 'Ease In Out',
-        value: 'ease-in-out',
+        label: '0 ms',
+        value: 'duration-0',
       },
       {
-        label: 'Ease In',
-        value: 'ease-in',
+        label: '75 ms',
+        value: 'duration-75',
       },
       {
-        label: 'Ease Out',
-        value: 'ease-out',
+        label: '100 ms',
+        value: 'duration-100',
       },
       {
-        label: 'Linear',
-        value: 'linear',
+        label: '150 ms',
+        value: 'duration-150',
       },
       {
-        label: 'None',
-        value: '',
+        label: '200 ms',
+        value: 'duration-200',
+      },
+      {
+        label: '300 ms',
+        value: 'duration-300',
+      },
+      {
+        label: '500 ms',
+        value: 'duration-500',
+      },
+      {
+        label: '700 ms',
+        value: 'duration-700',
+      },
+      {
+        label: '1000 ms',
+        value: 'duration-1000',
       },
     ],
   },

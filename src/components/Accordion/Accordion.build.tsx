@@ -11,6 +11,7 @@ const Accordion: FC<IAccordionProps> = ({
   classNames = [],
   items,
   transition,
+  position,
 }) => {
   const {
     connectors: { connect },
@@ -39,6 +40,7 @@ const Accordion: FC<IAccordionProps> = ({
       >
         {items?.map((item: any, index: number) => (
           <AccordionItem
+            position={position}
             resolver={resolver}
             key={item.id}
             onClick={() => toggleAccordion(index)}
