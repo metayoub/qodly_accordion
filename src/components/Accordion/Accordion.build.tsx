@@ -1,17 +1,30 @@
 import { useEnhancedNode, useEnhancedEditor, selectResolver } from '@ws-ui/webform-editor';
-import { Element } from '@ws-ui/craftjs-core';
 import cn from 'classnames';
 import { FC, useState } from 'react';
 import { IAccordionProps } from './Accordion.config';
-const Accordion: FC<IAccordionProps> = ({ style, variant, className, classNames = [], tabs }) => {
+import AccordionItem from './AccordionItem';
+const Accordion: FC<IAccordionProps> = ({
+  style,
+  variant,
+  className,
+  multiple,
+  classNames = [],
+  items,
+  transition,
+}) => {
   const {
     connectors: { connect },
   } = useEnhancedNode();
-
-  const [accordion, setAccordion] = useState(0);
+  const [accordion, setAccordion] = useState<number[]>([]);
 
   const toggleAccordion = (i: number) => {
-    setAccordion(accordion === i ? -1 : i);
+    multiple
+      ? accordion.includes(i)
+        ? setAccordion(accordion.filter((item) => item !== i))
+        : setAccordion([...accordion, i])
+      : accordion.includes(i)
+        ? setAccordion([])
+        : setAccordion([i]);
   };
 
   const { resolver } = useEnhancedEditor(selectResolver);
@@ -24,59 +37,16 @@ const Accordion: FC<IAccordionProps> = ({ style, variant, className, classNames 
           border: variant === 'contained',
         })}
       >
-        {tabs?.map((tab: any, index: number) => (
-          <div
-            key={tab.id}
-            className={cn('accordion-item group', {
-              'm-1': variant === 'separated',
-              'bg-gray-50':
-                (variant === 'separated' && accordion !== index) ||
-                (variant === 'filled' && accordion === index),
-            })}
-          >
-            <div
-              className={cn(
-                'accordion-title',
-                'hover:bg-indigo-500',
-                'flex mx-1 justify-between items-center gap-2',
-              )}
-            >
-              <Element
-                id={`accordion_${tab.id}`}
-                className="h-fit"
-                role="accordionheader"
-                is={resolver.StyleBox}
-                deletable={false}
-                canvas
-              />
-              <span
-                onClick={() => toggleAccordion(index)}
-                className={cn(
-                  'fa cursor-pointer self-center p-2',
-                  'accordion-chevron',
-                  accordion === index ? tab.openChevron : tab.closeChevron,
-                )}
-              ></span>
-            </div>
-            <div
-              className={cn(
-                'accordion-content m-1 overflow-hidden transition-max-height duration-150 ease-in-out',
-                {
-                  'max-h-0 opacity-0': accordion !== index,
-                  'max-h-full opacity-100': accordion === index,
-                },
-              )}
-            >
-              <Element
-                serverSideRef={tab.initialSsRef}
-                id={`body${tab.id}`}
-                role="accordioncontent"
-                is={resolver.StyleBox}
-                deletable={false}
-                canvas
-              />
-            </div>
-          </div>
+        {items?.map((item: any, index: number) => (
+          <AccordionItem
+            resolver={resolver}
+            key={item.id}
+            onClick={() => toggleAccordion(index)}
+            active={accordion.includes(index)}
+            item={item}
+            variant={variant}
+            transition={transition}
+          />
         ))}
       </div>
     </div>

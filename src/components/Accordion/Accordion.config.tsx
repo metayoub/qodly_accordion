@@ -24,7 +24,7 @@ export default {
       name: '',
       classNames: [],
       events: [],
-      tabs: [
+      items: [
         {
           id: generate(),
           title: 'Accordion 1',
@@ -65,10 +65,15 @@ export default {
       canAttach: () => false,
     },
   },
-  defaultProps: {},
+  defaultProps: {
+    multiple: false,
+    transition: 'ease-in-out',
+  },
 } as T4DComponentConfig<IAccordionProps>;
 
 export interface IAccordionProps extends webforms.ComponentProps {
-  tabs?: IAccordion[];
+  items?: IAccordion[];
   variant?: 'default' | 'contained' | 'filled' | 'separated';
+  multiple?: boolean;
+  transition?: 'ease-in-out' | 'ease-in' | 'ease-out' | 'linear' | '';
 }

@@ -27,12 +27,45 @@ const commonSettings: TSetting[] = [
     key: 'variant',
     isSearchable: false,
   },
-
+  {
+    type: ESetting.CHECKBOX,
+    label: 'Multiple',
+    key: 'multiple',
+    defaultValue: false,
+  },
+  {
+    type: ESetting.SELECT,
+    label: 'Transition',
+    key: 'transition',
+    defaultValue: 'ease-in-out',
+    options: [
+      {
+        label: 'Ease In Out',
+        value: 'ease-in-out',
+      },
+      {
+        label: 'Ease In',
+        value: 'ease-in',
+      },
+      {
+        label: 'Ease Out',
+        value: 'ease-out',
+      },
+      {
+        label: 'Linear',
+        value: 'linear',
+      },
+      {
+        label: 'None',
+        value: '',
+      },
+    ],
+  },
   {
     type: ESetting.DATAGRID,
-    key: 'tabs',
-    name: 'Tabs',
-    label: 'Tabs',
+    key: 'items',
+    name: 'Items',
+    label: 'Items',
     titleProperty: 'title',
     data: [
       {
@@ -44,7 +77,7 @@ const commonSettings: TSetting[] = [
       {
         key: 'openChevron',
         label: 'Open Chevron',
-        // type: ESetting.ICON_PICKER,
+        // type: ESetting.ICON_PICKER, to be fixed
         type: ESetting.TEXT_FIELD,
         defaultValue: 'fa-chevron-up',
       },
