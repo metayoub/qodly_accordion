@@ -7,7 +7,7 @@ Accordion component for Qodly apps.
 
 |Name	|Type	|Description	|
 |---	|---	|---	|
-|`Variant`	|String	|Accordion style. you can choose one of `Default`, `Contained`, `Filled`, `Separated`.	|
+|`Variant`	|String	|Accordion style. you can choose one of `Default`, `Contained`, `Filled`, `rounded`, `Separated`.	|
 |`Multiple`	|Boolean	|If set to `true` you can open many accordion at the same time.	|
 |`Transition`	|String	|If set to `None` no transition is applied. you can choose one of `Ease In Out`, `Ease In`, `Ease Out`, `Linear` or `None`.	|
 |`Items`	|Accordion Item	|You will need this to set the accordion's item. it come with one item by default.	|

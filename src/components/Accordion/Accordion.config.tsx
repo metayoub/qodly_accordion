@@ -73,7 +73,7 @@ export default {
 
 export interface IAccordionProps extends webforms.ComponentProps {
   items?: IAccordion[];
-  variant?: 'default' | 'contained' | 'filled' | 'separated';
+  variant?: 'default' | 'contained' | 'filled' | 'separated' | 'rounded';
   multiple?: boolean;
   transition?: 'ease-in-out' | 'ease-in' | 'ease-out' | 'linear' | '';
 }

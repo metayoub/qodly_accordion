@@ -3,7 +3,7 @@ import { Element } from '@ws-ui/craftjs-core';
 import cn from 'classnames';
 
 interface IAccordionItemProps {
-  variant?: 'default' | 'contained' | 'filled' | 'separated';
+  variant?: 'default' | 'contained' | 'filled' | 'separated' | 'rounded';
   item: any;
   active: boolean;
   onClick: () => void;
@@ -22,8 +22,12 @@ const AccordionItem: FC<IAccordionItemProps> = ({
   return (
     <div
       className={cn('accordion-item', {
-        'm-1': variant === 'separated',
-        'bg-gray-100': (variant === 'separated' && !active) || (variant === 'filled' && active),
+        'm-1': variant === 'separated' || variant === 'rounded',
+        'bg-gray-100':
+          (variant === 'separated' && !active) ||
+          (variant === 'filled' && active) ||
+          (variant === 'rounded' && !active),
+        'rounded-xl': variant === 'rounded',
       })}
     >
       <div

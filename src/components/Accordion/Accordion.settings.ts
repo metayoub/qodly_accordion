@@ -20,6 +20,10 @@ const commonSettings: TSetting[] = [
         value: 'filled',
       },
       {
+        label: 'Rounded',
+        value: 'rounded',
+      },
+      {
         label: 'Separated',
         value: 'separated',
       },
