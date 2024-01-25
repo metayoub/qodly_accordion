@@ -21,7 +21,7 @@ const AccordionItem: FC<IAccordionItemProps> = ({
 }) => {
   return (
     <div
-      className={cn('accordion-item group', {
+      className={cn('accordion-item', {
         'm-1': variant === 'separated',
         'bg-gray-100': (variant === 'separated' && !active) || (variant === 'filled' && active),
       })}
@@ -36,7 +36,7 @@ const AccordionItem: FC<IAccordionItemProps> = ({
         <Element
           id={`accordion_${item.id}`}
           className="h-fit"
-          role="accordionheader"
+          role="accordion-header"
           is={resolver.StyleBox}
           deletable={false}
           canvas
@@ -60,7 +60,7 @@ const AccordionItem: FC<IAccordionItemProps> = ({
         <Element
           serverSideRef={item.initialSsRef}
           id={`body${item.id}`}
-          role="accordioncontent"
+          role="accordion-content"
           is={resolver.StyleBox}
           deletable={false}
           canvas
