@@ -35,8 +35,9 @@ const AccordionItem: FC<IAccordionItemProps> = ({
     <div
       className={cn(
         'accordion-item',
-        `${(variant === 'filled' || variant === 'separated') && raduis}`,
+        `${variant === 'filled' || variant === 'separated' ? raduis : ''}`,
         {
+          active: active,
           'm-1': variant === 'separated' || variant === 'filled',
           'bg-gray-100':
             (variant === 'separated' && !active) ||

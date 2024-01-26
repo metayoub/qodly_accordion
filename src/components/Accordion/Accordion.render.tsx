@@ -41,7 +41,7 @@ const Accordion: FC<IAccordionProps> = ({
             'divide-y': variant === 'default' || variant === 'contained',
             border: variant === 'contained',
           },
-          `${variant === 'contained' && raduis}`,
+          `${variant === 'contained' ? raduis : ''}`,
         )}
       >
         {items?.map((item: any, index: number) => (
