@@ -12,7 +12,7 @@ interface IAccordionItemProps {
   position?: 'left' | 'right';
   openChevron?: string;
   closeChevron?: string;
-  raduis?:
+  radius?:
     | 'rounded-none'
     | 'rounded-sm'
     | 'rounded'
@@ -31,7 +31,7 @@ const AccordionItem: FC<IAccordionItemProps> = ({
   resolver,
   transition,
   position,
-  raduis,
+  radius,
   openChevron,
   closeChevron,
 }) => {
@@ -40,7 +40,7 @@ const AccordionItem: FC<IAccordionItemProps> = ({
     <div
       className={cn(
         'accordion-item',
-        `${variant === 'filled' || variant === 'separated' ? raduis : ''}`,
+        `${variant === 'filled' || variant === 'separated' ? radius : ''}`,
         {
           active: active,
           'm-1': variant === 'separated' || variant === 'filled',

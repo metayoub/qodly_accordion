@@ -42,8 +42,8 @@ const commonSettings: TSetting[] = [
   },
   {
     type: ESetting.SELECT,
-    label: 'Raduis',
-    key: 'raduis',
+    label: 'radius',
+    key: 'radius',
     isClearable: false,
     isSearchable: false,
     options: [

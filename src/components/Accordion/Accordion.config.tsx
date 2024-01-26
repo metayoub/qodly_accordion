@@ -65,7 +65,7 @@ export default {
     multiple: false,
     transition: 'duration-300',
     position: 'right',
-    raduis: 'rounded-none',
+    radius: 'rounded-none',
     openChevron: 'fa-chevron-up',
     closeChevron: 'fa-chevron-down',
   },
@@ -88,7 +88,7 @@ export interface IAccordionProps extends webforms.ComponentProps {
     | 'duration-700'
     | 'duration-1000';
   position?: 'left' | 'right';
-  raduis?:
+  radius?:
     | 'rounded-none'
     | 'rounded-sm'
     | 'rounded'

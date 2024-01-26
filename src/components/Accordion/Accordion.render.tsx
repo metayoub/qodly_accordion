@@ -15,7 +15,7 @@ const Accordion: FC<IAccordionProps> = ({
   items,
   transition,
   position,
-  raduis,
+  radius,
   openChevron,
   closeChevron,
 }) => {
@@ -43,7 +43,7 @@ const Accordion: FC<IAccordionProps> = ({
             'divide-y': variant === 'default' || variant === 'contained',
             border: variant === 'contained',
           },
-          `${variant === 'contained' ? raduis : ''}`,
+          `${variant === 'contained' ? radius : ''}`,
         )}
       >
         {items?.map((item: any, index: number) => (
@@ -56,7 +56,7 @@ const Accordion: FC<IAccordionProps> = ({
             variant={variant}
             transition={transition}
             position={position}
-            raduis={raduis}
+            radius={radius}
             openChevron={openChevron}
             closeChevron={closeChevron}
           />
