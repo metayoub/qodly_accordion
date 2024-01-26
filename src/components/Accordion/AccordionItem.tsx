@@ -35,7 +35,6 @@ const AccordionItem: FC<IAccordionItemProps> = ({
   openChevron,
   closeChevron,
 }) => {
-  console.log(openChevron);
   return (
     <div
       className={cn(
@@ -53,12 +52,9 @@ const AccordionItem: FC<IAccordionItemProps> = ({
       )}
     >
       <div
-        className={cn(
-          'accordion-title',
-          'hover:bg-indigo-500', // not working
-          'flex mx-1 justify-between items-center gap-2',
-          { 'flex-row-reverse': position === 'left' },
-        )}
+        className={cn('accordion-title', 'flex mx-1 justify-between items-center gap-2', {
+          'flex-row-reverse': position === 'left',
+        })}
       >
         <Element
           id={`accordion_${item.id}`}
