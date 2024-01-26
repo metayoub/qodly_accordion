@@ -12,6 +12,7 @@ const Accordion: FC<IAccordionProps> = ({
   items,
   transition,
   position,
+  raduis,
 }) => {
   const {
     connectors: { connect },
@@ -33,10 +34,15 @@ const Accordion: FC<IAccordionProps> = ({
   return (
     <div ref={connect} style={style} className={cn(className, classNames)}>
       <div
-        className={cn('accordion', {
-          'divide-y': variant === 'default' || variant === 'contained',
-          border: variant === 'contained',
-        })}
+        className={cn(
+          'accordion',
+          'overflow-hidden',
+          {
+            'divide-y': variant === 'default' || variant === 'contained',
+            border: variant === 'contained',
+          },
+          `${variant === 'contained' && raduis}`,
+        )}
       >
         {items?.map((item: any, index: number) => (
           <AccordionItem
@@ -48,6 +54,7 @@ const Accordion: FC<IAccordionProps> = ({
             item={item}
             variant={variant}
             transition={transition}
+            raduis={raduis}
           />
         ))}
       </div>

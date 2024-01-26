@@ -7,7 +7,8 @@ Accordion component for Qodly apps.
 
 |Name	|Type	|Description	|
 |---	|---	|---	|
-|`Variant`	|String	|Accordion style. you can choose one of `Default`, `Contained`, `Filled`, `rounded`, `Separated`.	|
+|`Variant`	|String	|Accordion style. you can choose one of `Default`, `Contained`, `Filled` or `Separated`.	|
+|`Raduis`	|String	|Raduis style. you can choose one of `None`, `Small`, `Meduim`, `Large`, `Extra Large`, `Extra Extra Large` or `Extra Extra Extra Large`.	|
 |`Multiple`	|Boolean	|If set to `true` you can open many accordion at the same time.	|
 |`Transition`	|String	|Transition duration . you can choose one of `0 ms`, `75 ms`, `100 ms`, `150 ms`, `200 ms` , `300 ms`, `500 ms`, `700 ms`, `1000 ms`.	|
 |`Items`	|Accordion Item	|You will need this to set the accordion's item. it come with one item by default.	|

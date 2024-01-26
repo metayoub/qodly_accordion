@@ -69,12 +69,13 @@ export default {
     multiple: false,
     transition: 'duration-300',
     position: 'right',
+    raduis: 'rounded-none',
   },
 } as T4DComponentConfig<IAccordionProps>;
 
 export interface IAccordionProps extends webforms.ComponentProps {
   items?: IAccordion[];
-  variant?: 'default' | 'contained' | 'filled' | 'separated' | 'rounded';
+  variant?: 'default' | 'contained' | 'filled' | 'separated';
   multiple?: boolean;
   transition?:
     | 'duration-0'
@@ -87,4 +88,13 @@ export interface IAccordionProps extends webforms.ComponentProps {
     | 'duration-700'
     | 'duration-1000';
   position?: 'left' | 'right';
+  raduis?:
+    | 'rounded-none'
+    | 'rounded-sm'
+    | 'rounded'
+    | 'rounded-md'
+    | 'rounded-lg'
+    | 'rounded-xl'
+    | 'rounded-2xl'
+    | 'rounded-3xl';
 }

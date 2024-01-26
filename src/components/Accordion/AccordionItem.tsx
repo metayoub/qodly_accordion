@@ -10,6 +10,15 @@ interface IAccordionItemProps {
   resolver: any;
   transition?: string;
   position?: 'left' | 'right';
+  raduis?:
+    | 'rounded-none'
+    | 'rounded-sm'
+    | 'rounded'
+    | 'rounded-md'
+    | 'rounded-lg'
+    | 'rounded-xl'
+    | 'rounded-2xl'
+    | 'rounded-3xl';
 }
 
 const AccordionItem: FC<IAccordionItemProps> = ({
@@ -20,17 +29,22 @@ const AccordionItem: FC<IAccordionItemProps> = ({
   resolver,
   transition,
   position,
+  raduis,
 }) => {
   return (
     <div
-      className={cn('accordion-item', {
-        'm-1': variant === 'separated' || variant === 'rounded',
-        'bg-gray-100':
-          (variant === 'separated' && !active) ||
-          (variant === 'filled' && active) ||
-          (variant === 'rounded' && !active),
-        'rounded-xl': variant === 'rounded',
-      })}
+      className={cn(
+        'accordion-item',
+        `${(variant === 'filled' || variant === 'separated') && raduis}`,
+        {
+          'm-1': variant === 'separated' || variant === 'filled',
+          'bg-gray-100':
+            (variant === 'separated' && !active) ||
+            (variant === 'filled' && active) ||
+            (variant === 'contained' && active),
+          border: variant === 'separated' && active,
+        },
+      )}
     >
       <div
         className={cn(
@@ -48,6 +62,7 @@ const AccordionItem: FC<IAccordionItemProps> = ({
           deletable={false}
           canvas
         />
+
         <span
           onClick={onClick}
           className={cn(

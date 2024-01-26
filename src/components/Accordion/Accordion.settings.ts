@@ -21,16 +21,49 @@ const commonSettings: TSetting[] = [
         value: 'filled',
       },
       {
-        label: 'Rounded',
-        value: 'rounded',
-      },
-      {
         label: 'Separated',
         value: 'separated',
       },
     ],
     key: 'variant',
     isSearchable: false,
+  },
+  {
+    type: ESetting.SELECT,
+    label: 'Raduis',
+    key: 'raduis',
+    isClearable: false,
+    isSearchable: false,
+    options: [
+      {
+        label: 'None',
+        value: 'rounded-none',
+      },
+      {
+        label: 'Small',
+        value: 'rounded-sm',
+      },
+      {
+        label: 'Medium',
+        value: 'rounded',
+      },
+      {
+        label: 'Large',
+        value: 'rounded-lg',
+      },
+      {
+        label: 'Extra Large',
+        value: 'rounded-xl',
+      },
+      {
+        label: 'Extra Extra Large',
+        value: 'rounded-2xl',
+      },
+      {
+        label: 'Extra Extra Extra Large',
+        value: 'rounded-3xl',
+      },
+    ],
   },
   {
     type: ESetting.CHECKBOX,
