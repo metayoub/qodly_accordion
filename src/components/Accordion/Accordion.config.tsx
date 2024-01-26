@@ -7,8 +7,6 @@ import AccordionSettings, { BasicSettings } from './Accordion.settings';
 export interface IAccordion {
   id: string;
   title: string;
-  openChevron: string;
-  closeChevron: string;
   initialSsRef: string;
 }
 
@@ -29,8 +27,6 @@ export default {
           id: generate(),
           title: 'Accordion 1',
           initialSsRef: 'accordion_1',
-          openChevron: 'fa-chevron-up',
-          closeChevron: 'fa-chevron-down',
         },
       ],
       variant: 'default' as string,
@@ -70,12 +66,16 @@ export default {
     transition: 'duration-300',
     position: 'right',
     raduis: 'rounded-none',
+    openChevron: 'fa-chevron-up',
+    closeChevron: 'fa-chevron-down',
   },
 } as T4DComponentConfig<IAccordionProps>;
 
 export interface IAccordionProps extends webforms.ComponentProps {
   items?: IAccordion[];
   variant?: 'default' | 'contained' | 'filled' | 'separated';
+  openChevron?: string;
+  closeChevron?: string;
   multiple?: boolean;
   transition?:
     | 'duration-0'

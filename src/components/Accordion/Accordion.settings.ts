@@ -29,6 +29,18 @@ const commonSettings: TSetting[] = [
     isSearchable: false,
   },
   {
+    key: 'openChevron',
+    label: 'Open Chevron',
+    type: ESetting.ICON_PICKER,
+    defaultValue: 'fa-chevron-up',
+  },
+  {
+    key: 'closeChevron',
+    label: 'CLose Chevron',
+    type: ESetting.ICON_PICKER,
+    defaultValue: 'fa-chevron-down',
+  },
+  {
     type: ESetting.SELECT,
     label: 'Raduis',
     key: 'raduis',
@@ -143,20 +155,6 @@ const commonSettings: TSetting[] = [
         label: 'Title',
         type: ESetting.TEXT_FIELD,
         defaultValue: '',
-      },
-      {
-        key: 'openChevron',
-        label: 'Open Chevron',
-        // type: ESetting.ICON_PICKER, to be fixed
-        type: ESetting.TEXT_FIELD,
-        defaultValue: 'fa-chevron-up',
-      },
-      {
-        key: 'closeChevron',
-        label: 'CLose Chevron',
-        // type: ESetting.ICON_PICKER,
-        type: ESetting.TEXT_FIELD,
-        defaultValue: 'fa-chevron-down',
       },
     ],
   },

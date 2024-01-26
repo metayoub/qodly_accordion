@@ -16,6 +16,8 @@ const Accordion: FC<IAccordionProps> = ({
   transition,
   position,
   raduis,
+  openChevron,
+  closeChevron,
 }) => {
   const { connect } = useRenderer();
   const { resolver } = useEnhancedEditor(selectResolver);
@@ -55,6 +57,8 @@ const Accordion: FC<IAccordionProps> = ({
             transition={transition}
             position={position}
             raduis={raduis}
+            openChevron={openChevron}
+            closeChevron={closeChevron}
           />
         ))}
       </div>

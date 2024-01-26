@@ -13,6 +13,8 @@ const Accordion: FC<IAccordionProps> = ({
   transition,
   position,
   raduis,
+  openChevron,
+  closeChevron,
 }) => {
   const {
     connectors: { connect },
@@ -55,6 +57,8 @@ const Accordion: FC<IAccordionProps> = ({
             variant={variant}
             transition={transition}
             raduis={raduis}
+            openChevron={openChevron}
+            closeChevron={closeChevron}
           />
         ))}
       </div>

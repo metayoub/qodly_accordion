@@ -10,6 +10,8 @@ interface IAccordionItemProps {
   resolver: any;
   transition?: string;
   position?: 'left' | 'right';
+  openChevron?: string;
+  closeChevron?: string;
   raduis?:
     | 'rounded-none'
     | 'rounded-sm'
@@ -30,7 +32,10 @@ const AccordionItem: FC<IAccordionItemProps> = ({
   transition,
   position,
   raduis,
+  openChevron,
+  closeChevron,
 }) => {
+  console.log(openChevron);
   return (
     <div
       className={cn(
@@ -69,7 +74,7 @@ const AccordionItem: FC<IAccordionItemProps> = ({
           className={cn(
             'fa cursor-pointer self-center p-2',
             'accordion-chevron',
-            active ? item.openChevron : item.closeChevron,
+            active ? openChevron : closeChevron,
           )}
         ></span>
       </div>
